@@ -1,0 +1,3 @@
+How to use gobuster dns to enumerate subdomains.
+
+gobuster dns -d http://bugcrowd.com -w ~/lists/subs.txt
