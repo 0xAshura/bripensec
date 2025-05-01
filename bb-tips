@@ -1,3 +1,7 @@
 How to use gobuster dns to enumerate subdomains.
 
 gobuster dns -d http://bugcrowd.com -w ~/lists/subs.txt
+
+If you ever find a PDF generation feature that renders iframes and it’s running on an Azure instance, don’t quit too soon.
+
+Try hitting http://168[.]63[.]129[.]16:32526/vmSettings — you might pull Azure VM settings, machine keys, and more. Saved me once!
