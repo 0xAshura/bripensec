@@ -1,0 +1,24 @@
+subfinder commands
+
+subfinder -d google.com -all > subdomain.txt
+subfinder -dL google.txt -all > subdomain.txt
+
+httpx commands
+
+httpx -title -wc -sc -cl -ct -location -web-server -asn -o alive-subdomains.txt
+
+ffuf commands
+
+ffuf -u https://FUZZ1/FUZZ2 -w subdomain.txt:FUZZ1, directory.txt:FUZZ2
+ffuf -w wordlist.txt -u http://example.com/FUZZ
+ffuf -w subdomains.txt -H "Host: FUZZ.example.com" -u https://example.com
+ffuf -w wordlist.txt -u http://example.com/FUZZ -recursion
+
+
+Finding parameters from Waybackurls
+
+grep -oP ‘(?<=\?|&)\w+(?==|&)’ urls.txt | sort -u
+
+crt.sh
+
+curl -s https://crt.sh/\?q\=\google.com\&output\=json | jq -r '.[].name_value' | grep -Po '(\w+\.\w+\.\w+)$'
