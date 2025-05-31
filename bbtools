@@ -1,0 +1,4 @@
+git clone https://github.com/babaralijamali/projectdiscovery-auto
+cd projectdiscovery-auto
+chmod +x pd.sh
+./pd.sh
