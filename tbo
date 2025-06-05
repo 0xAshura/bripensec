@@ -13,6 +13,7 @@ ffuf -u https://FUZZ1/FUZZ2 -w subdomain.txt:FUZZ1, directory.txt:FUZZ2
 ffuf -w wordlist.txt -u http://example.com/FUZZ
 ffuf -w subdomains.txt -H "Host: FUZZ.example.com" -u https://example.com
 ffuf -w wordlist.txt -u http://example.com/FUZZ -recursion
+ffuf -w /root/Synchrony/june4/404:SUB -w /root/OneListForAll-2.4.1.1/onelistforallmicro.txt:PATH -u https://SUB/PATH -t 100 -mc 200 -fs 0,1,2,3,2099  -o results.json -of json -timeout 10  -k
 
 
 Finding parameters from Waybackurls
