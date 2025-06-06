@@ -1,4 +1,57 @@
 subs -- not done yet
 live subs
 
-httpx o/p in json and then o/p will be like these : files of subs with specific status code with same filename as status code, subs with specific tech with filename as tech, subs with juicy wordlist with filename as juicy wordlist, subs all w/o tech just probed with file name httpprobed,    
+httpx o/p in json and then o/p will be like these : files of subs with specific status code with same filename as status code, subs with specific tech with filename as tech, subs with juicy wordlist with filename as juicy wordlist, subs all w/o tech just probed with file name httpprobed.
+
+all of above in below script 
+
+#!/bin/bash
+
+# Step 1: Run httpx scan
+httpx -l cleaned_subs.txt -sc -cl -title -tech-detect -fr -nc -silent -j \
+      -rate-limit 300 -threads 100 -timeout 5 -retries 1 \
+      -o results.json
+
+# Step 2: Organize by status code
+jq -r 'select(.status_code != null) | "\(.status_code) \(.url)"' results.json | \
+awk '{print $2 >> $1".txt"}'
+
+# Step 3: Create tech_wise directory and populate with sanitized domains
+mkdir -p tech_wise
+jq -r 'select(.tech? | length > 0) | .url as $url | .tech[] | "\(.)\t\($url)"' results.json | \
+awk -F'\t' '{
+    # Sanitize technology name
+    gsub(/[^A-Za-z0-9_-]/, "_", $1);
+    
+    # Clean domain: remove scheme and paths
+    sub("^https?://", "", $2);
+    sub("/.*", "", $2);
+    
+    # Remove www prefix
+    sub(/^www\./, "", $2);
+    
+    print $2 >> "tech_wise/" $1 ".txt"
+}'
+
+# Step 4: Create tech distribution summary
+jq -r '.tech[]?' results.json | sort | uniq -c | sort -nr > tech_distribution.txt
+
+# Step 5: Generate priority targets list
+grep -iE 'jenkins|gitlab|aws|console|dashboard|admin|wp-admin|wp-login|grafana|swagger|phpmyadmin' 200.txt > priority_targets.txt
+
+# Step 6: Create ASM-ready target lists
+mkdir -p asm_targets
+for tech in $(ls tech_wise | sed 's/\.txt//'); do
+    sort -u "tech_wise/$tech.txt" > "asm_targets/${tech}_targets.txt"
+done
+
+# Step 7: Create consolidated unique domains list
+cat tech_wise/*.txt | sort -u > all_unique_domains.txt
+
+# Step 8: Verification and stats
+echo "[+] Scan completed! Results summary:"
+echo "------------------------------------"
+wc -l *.txt | grep -v total
+echo "------------------------------------"
+echo "Top technologies:"
+head -n 10 tech_distribution.txt
