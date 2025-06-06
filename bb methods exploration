@@ -1,0 +1,4 @@
+subs -- not done yet
+live subs
+
+httpx o/p in json and then o/p will be like these : files of subs with specific status code with same filename as status code, subs with specific tech with filename as tech, subs with juicy wordlist with filename as juicy wordlist, subs all w/o tech just probed with file name httpprobed,    
