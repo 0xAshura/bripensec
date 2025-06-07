@@ -3,6 +3,15 @@ subfinder commands
 subfinder -d google.com -all > subdomain.txt
 subfinder -dL google.txt -all > subdomain.txt
 
+amass
+
+amass enum -passive -d owasp.org -src -config config.ini
+amass enum -active -d owasp.org -src -config config.ini
+./amass enum -df domains.txt
+./amass track -d owasp.org
+
+
+
 httpx commands
 
 httpx -title -wc -sc -cl -ct -location -web-server -asn -o alive-subdomains.txt
