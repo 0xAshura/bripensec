@@ -28,7 +28,6 @@ wpscan
 
 wpscan --url https://tgt.com --enumerate vp,vt,tt,cb,dbe,u,m --plugins-detection aggressive --api-token UH8jqOKIaf0sfl2RSFonKwUp7WsxGJJEsN2y2iScllI --random-user-agent --throttle 500 --request-timeout 15 --max-threads 10 --format cli-no-color -o wpscan_results.txt --wp-content-dir custom-content --wp-plugins-dir custom-plugins --ignore-main-redirect
 
-grep -vE '^https?://' n > new
-root@0xMehir:~/Synchrony/june4# sed 's/^www\.//' new > neww
-root@0xMehir:~/Synchrony/june4# sort -u neww > n             
-root@0xMehir:~/Synchrony/june4# ls
+sed -E 's~^https?://~~; s~^www\.~~' subs.txt | sort -u > final_subs.txt
+
+
