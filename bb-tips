@@ -30,3 +30,7 @@ While testing, replace `alert(1)` with:
 
 These small tweaks can sometimes slip past basic WAFs and make your testing a bit less obvious.
 --------------------------------------------------------
+Tips from twitter
+
+https://gowsundar.gitbook.io/book-of-bugbounty-tips/
+--------------------------------------------------------
