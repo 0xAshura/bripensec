@@ -39,4 +39,7 @@ wpscan --url https://tgt.com --enumerate vp,vt,tt,cb,dbe,u,m --plugins-detection
 
 sed -E 's~^https?://~~; s~^www\.~~' subs.txt | sort -u > final_subs.txt
 
+urx example.com
+
+
 
