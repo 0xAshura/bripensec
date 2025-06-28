@@ -41,5 +41,5 @@ sed -E 's~^https?://~~; s~^www\.~~' subs.txt | sort -u > final_subs.txt
 
 urx example.com
 
-
+python3 paramspider.py --level high -d testphp.vulnweb.com
 
