@@ -35,7 +35,7 @@ curl -s https://crt.sh/\?q\=\google.com\&output\=json | jq -r '.[].name_value' |
 
 wpscan 
 
-wpscan --url https://tgt.com --enumerate vp,vt,tt,cb,dbe,u,m --plugins-detection aggressive --api-token UH8jqOKIaf0sfl2RSFonKwUp7WsxGJJEsN2y2iScllI --random-user-agent --throttle 500 --request-timeout 15 --max-threads 10 --format cli-no-color -o wpscan_results.txt --wp-content-dir custom-content --wp-plugins-dir custom-plugins --ignore-main-redirect
+wpscan --url https://tgt.com --enumerate vp,vt,tt,cb,dbe,u,m --plugins-detection passive --api-token UH8jqOKIaf0sfl2RSFonKwUp7WsxGJJEsN2y2iScllI --random-user-agent --throttle 500 --request-timeout 15 --max-threads 10 --ignore-main-redirect
 
 sed -E 's~^https?://~~; s~^www\.~~' subs.txt | sort -u > final_subs.txt
 
