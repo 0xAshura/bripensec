@@ -41,5 +41,7 @@ sed -E 's~^https?://~~; s~^www\.~~' subs.txt | sort -u > final_subs.txt
 
 urx example.com
 
+nuclei -l tesla_httprobe.txt -t brute-force/* -t cves/* -t basic-detections/* -t dns/* -t files/* -t panels/* -t security-misconfiguration/* -t subdomain-takeover/* -t technologies/* -t tokens/* -t vulnerabilities/*
+
 python3 paramspider.py --level high -d testphp.vulnweb.com
 
