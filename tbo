@@ -45,3 +45,6 @@ nuclei -l tesla_httprobe.txt -t brute-force/* -t cves/* -t basic-detections/* -t
 
 python3 paramspider.py --level high -d testphp.vulnweb.com
 
+echo AS1234 | asnmap | naabu -tp 1000 -sa | httpx -o AS2134_nabbu_httpx
+
+
