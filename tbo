@@ -1,21 +1,20 @@
+-----------------------------------------------------------------------
 subfinder commands
 
 subfinder -d google.com -all > subdomain.txt
 subfinder -dL google.txt -all > subdomain.txt
-
+-----------------------------------------------------------------------
 amass
 
 amass enum -passive -d owasp.org -src -config config.ini
 amass enum -active -d owasp.org -src -config config.ini
 ./amass enum -df domains.txt
 ./amass track -d owasp.org
-
-
-
+-----------------------------------------------------------------------
 httpx commands
 
 httpx -title -wc -sc -cl -ct -location -web-server -asn -o alive-subdomains.txt
-
+-----------------------------------------------------------------------
 ffuf commands
 
 ffuf -u https://FUZZ1/FUZZ2 -w subdomain.txt:FUZZ1, directory.txt:FUZZ2
@@ -23,28 +22,28 @@ ffuf -w wordlist.txt -u http://example.com/FUZZ
 ffuf -w subdomains.txt -H "Host: FUZZ.example.com" -u https://example.com
 ffuf -w wordlist.txt -u http://example.com/FUZZ -recursion
 ffuf -w /root/Synchrony/june4/404:SUB -w /root/OneListForAll-2.4.1.1/onelistforallmicro.txt:PATH -u https://SUB/PATH -t 100 -mc 200 -fs 0,1,2,3,2099  -o results.json -of json -timeout 10  -k
-
-
+-----------------------------------------------------------------------
 Finding parameters from Waybackurls
 
 grep -oP ‘(?<=\?|&)\w+(?==|&)’ urls.txt | sort -u
-
+-----------------------------------------------------------------------
 crt.sh
 
 curl -s https://crt.sh/\?q\=\google.com\&output\=json | jq -r '.[].name_value' | grep -Po '(\w+\.\w+\.\w+)$'
-
+-----------------------------------------------------------------------
 wpscan 
 
 wpscan --url https://tgt.com --enumerate vp,vt,tt,cb,dbe,u,m --plugins-detection passive --api-token UH8jqOKIaf0sfl2RSFonKwUp7WsxGJJEsN2y2iScllI --random-user-agent --throttle 500 --request-timeout 15 --max-threads 10 --ignore-main-redirect
-
+-----------------------------------------------------------------------
 sed -E 's~^https?://~~; s~^www\.~~' subs.txt | sort -u > final_subs.txt
-
+-----------------------------------------------------------------------
 urx example.com
-
+-----------------------------------------------------------------------
 nuclei -l tesla_httprobe.txt -t brute-force/* -t cves/* -t basic-detections/* -t dns/* -t files/* -t panels/* -t security-misconfiguration/* -t subdomain-takeover/* -t technologies/* -t tokens/* -t vulnerabilities/*
-
+-----------------------------------------------------------------------
 python3 paramspider.py --level high -d testphp.vulnweb.com
-
+-----------------------------------------------------------------------
 echo AS1234 | asnmap | naabu -tp 1000 -sa | httpx -o AS2134_nabbu_httpx
-
-
+-----------------------------------------------------------------------
+cat httpxw | cariddi -c 50 -rua -intensive -ext 3 -s -e -err -info -ot results.txt -oh results.html -sr
+-----------------------------------------------------------------------
