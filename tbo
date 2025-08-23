@@ -47,3 +47,5 @@ echo AS1234 | asnmap | naabu -tp 1000 -sa | httpx -o AS2134_nabbu_httpx
 -----------------------------------------------------------------------
 cat httpxw | cariddi -c 50 -rua -intensive -ext 3 -s -e -err -info -ot results.txt -oh results.html -sr
 -----------------------------------------------------------------------
+curl "https://web.archive.org/cdx/search/cdx?url=*.example.com/*&collapse=urlkey&output=text&fl=original"
+-----------------------------------------------------------------------
