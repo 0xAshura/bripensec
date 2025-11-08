@@ -15,6 +15,7 @@ wordlist :
 
 https://github.com/six2dez/OneListForAll
 https://github.com/danielmiessler/SecLists
+https://github.com/Karanxa/Bug-Bounty-Wordlists
 
 Parameters :
 
@@ -41,5 +42,6 @@ utils :
 
 https://github.com/0xKayala/NucleiFuzzer
 https://github.com/yHunterDep/revlookup 
+https://github.com/gotr00t0day/Techackz
 
 
