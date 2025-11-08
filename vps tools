@@ -1,0 +1,45 @@
+subdomain finders :
+
+https://github.com/projectdiscovery/subfinder
+https://github.com/tomnomnom/assetfinder
+https://github.com/owasp-amass/amass
+https://github.com/0xAshura/VT-Digger
+https://github.com/iamthefrogy/frogy2.0
+
+nuclei templates :
+
+https://github.com/AggressiveUser/AllForOne
+https://github.com/xm1k3/cent
+
+wordlist :
+
+https://github.com/six2dez/OneListForAll
+https://github.com/danielmiessler/SecLists
+
+Parameters :
+
+https://github.com/devanshbatham/ParamSpider
+https://github.com/s0md3v/Arjun
+
+Probing :
+
+https://github.com/RevoltSecurities/SubProber
+https://github.com/projectdiscovery/httpx
+
+web-crawlers :
+
+https://github.com/s0md3v/Photon
+
+Archieve URLs :
+
+https://github.com/hahwul/urx
+https://github.com/tomnomnom/waybackurls
+https://github.com/lc/gau
+https://github.com/bp0lr/gauplus
+
+utils :
+
+https://github.com/0xKayala/NucleiFuzzer
+https://github.com/yHunterDep/revlookup 
+
+
